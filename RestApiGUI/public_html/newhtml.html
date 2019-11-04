@@ -1,0 +1,168 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+    var counter = 0;
+
+    $("#addrow").on("click", function () {
+        var newRow = $("<tr>");
+        var cols = "";
+
+        cols += '<td><input type="text" class="form-control" name="namn' + counter + '"/></td>';
+        cols += '<td><input type="text" class="form-control" name="idealNr' + counter + '"/></td>';
+        cols += '<td><input type="text" class="form-control" name="kursKod' + counter + '"/></td>';
+        cols += '<td><input type="text" class="form-control" name="termin' + counter + '"/></td>';
+        cols += '<td><input type="text" class="form-control" name="provNr' + counter + '"/></td>';
+        cols += '<td><input type="text" class="form-control" name="datum' + counter + '"/></td>';
+        cols += '<td><input type="text" class="form-control" name="betyg' + counter + '"/></td>';
+
+        cols += '<td><input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"></td>';
+        newRow.append(cols);
+        $("table.order-list").append(newRow);
+        counter++;
+    });
+
+
+
+    $("table.order-list").on("click", ".ibtnDel", function (event) {
+        $(this).closest("tr").remove();       
+        counter -= 1
+    });
+
+
+});
+
+
+
+
+    </script>
+
+
+<div class="container">
+    <table id="myTable" class=" table order-list">
+    <thead>
+        <title>Rest-API Graphical Interface</title>
+        <tr>
+            <td>Namn</td>
+            <td>Idealnr</td>
+            <td>Kursnr</td>
+            <td>Termin</td>
+            <td>Provnr</td>
+            <td>Datum</td>
+            <td>Betyg</td>
+        </tr>
+    </thead>
+    <tbody>
+        <h1>Rest-API Graphical Interface</h1>
+   
+        <tr>
+    
+           
+            <td class="col-sm-2">
+                <input type="text" name="namn"  class="form-control" value="Joel Tingman"/>
+                </td>
+            <td class="col-sm-1">
+                <input type="text" name="idealNr"  class="form-control" value="joetin-7"/>
+            </td>
+            <td class="col-sm-1">
+                <input type="text" name="kursNr"  class="form-control"value="D0025N"/>
+            </td>
+            <td class="col-sm-1">
+                <input type="text" name="termin" class="form-control" value="ht-19" />
+            </td>
+            <td class="col-sm-1">
+                <input type="text" name="provNr" class="form-control" value="002" />
+            </td>
+            <td class="col-sm-1">
+                <input type="text" name="datum" class="form-control" value="04-11-19"/>
+            </td>
+            <td class="col-sm-1">
+                <input type="text" name="betyg" class="form-control" value="VG"/>
+            </td>
+            <td><input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"></td>
+            
+            <td class="col-sm-1"><a class="deleteRow"></a>
+
+            </td>
+            
+
+        </tr>
+           <tr>
+    
+           
+            <td class="col-sm-2">
+                <input type="text" name="namn"  class="form-control" value="Petter Ahnfors"/>
+                </td>
+            <td class="col-sm-1">
+                <input type="text" name="idealNr"  class="form-control" value="petahn-7"/>
+            </td>
+            <td class="col-sm-1">
+                <input type="text" name="kursNr"  class="form-control"value="D0025N"/>
+            </td>
+            <td class="col-sm-1">
+                <input type="text" name="termin" class="form-control" value="ht-19" />
+            </td>
+            <td class="col-sm-1">
+                <input type="text" name="provNr" class="form-control" value="001" />
+            </td>
+            <td class="col-sm-1">
+                <input type="text" name="datum" class="form-control" value="04-11-19"/>
+            </td>
+            <td class="col-sm-1">
+                <input type="text" name="betyg" class="form-control" value="G"/>
+            </td>
+            <td><input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"></td>
+            
+          
+            
+
+        </tr>
+           <tr>
+    
+           
+            <td class="col-sm-2">
+                <input type="text" name="namn"  class="form-control" value="Alexander Elmgren"/>
+                </td>
+            <td class="col-sm-1">
+                <input type="text" name="idealNr"  class="form-control" value="aleelm-7"/>
+            </td>
+            <td class="col-sm-1">
+                <input type="text" name="kursNr"  class="form-control"value="D0031E"/>
+            </td>
+            <td class="col-sm-1">
+                <input type="text" name="termin" class="form-control" value="ht-19" />
+            </td>
+            <td class="col-sm-1">
+                <input type="text" name="provNr" class="form-control" value="001" />
+            </td>
+            <td class="col-sm-1">
+                <input type="text" name="datum" class="form-control" value="04-11-19"/>
+            </td>
+            <td class="col-sm-1">
+                <input type="text" name="betyg" class="form-control" value="U"/>
+            </td>
+            <td><input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"></td>
+            
+           
+            
+
+        </tr>
+        
+    </tbody>
+    <tfoot>
+        <tr>
+            <td style="text-align: left;">
+                <input type="button" class="btn btn-lg" id="addrow" value="Add Student" />
+            </td>
+           
+        </tr>
+        <tr>
+            <td style="text-align: left;">
+                <input type="button" class="btn btn-lg" value="Save Student" />
+            </td>
+        </tr>
+    </tfoot>
+</table>
+</div>
